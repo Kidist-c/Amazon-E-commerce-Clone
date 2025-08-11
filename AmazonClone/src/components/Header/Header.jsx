@@ -4,6 +4,7 @@ import LowerHeader from './LowerHeader';
 import { FiSearch } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { CgShoppingCart } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -13,9 +14,9 @@ function Header() {
             <div className={classes.header_container}>
             <div className={classes.logo_container}>
                 {/*logo */}
-                <a href="">
+                <Link to="/">
                     <img src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png" alt="amazon logo"  />
-                </a>
+                </Link>
                 <div className={classes.delivery}>
                     {/*delivery*/}
                 <span>
@@ -44,25 +45,26 @@ function Header() {
                         <option value="">EN</option>
                     </select>
                 </div>
-                <a href="">
+                <Link to="/auth">
                     <div>
                         <p>Sign In</p>
                         <span>Account & lists</span>
                     </div>
-                    </a>
-                <a href="">
+                    </Link>
+                   
+                <Link to="/orders">
                     <div>
                         <p>returns</p>
                         <span>& orders</span>
                     </div>
                     
 
-                </a>
-                <a href="" className={classes.cart}>
+                </Link>
+                <Link to="/cart"  className={classes.cart}>
                 {/*icon*/}
                 <CgShoppingCart />
                 <span>0</span>
-                </a>
+                </Link>
             </div>
             </div>
 
