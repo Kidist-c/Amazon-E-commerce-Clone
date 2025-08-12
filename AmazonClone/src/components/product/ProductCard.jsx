@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 
 
 function ProductCard({data}) {
-    const {image, title, rating, price}= data;
+    const {image, title,id,rating, price}= data;
     console.log(data)
   return (
+    <>
     <div className={classes.container}>
-      <Link to="">
+      <Link to={`/products/${id}`}>
             <img src={image} alt=" "/>
             
         </Link>
@@ -26,7 +27,8 @@ function ProductCard({data}) {
             <Currency amount={price}/>
         </div>
         <button className={classes.button}>Add to Cart</button>
-    </div>
+    </div></>
+    
   )
 }
 
