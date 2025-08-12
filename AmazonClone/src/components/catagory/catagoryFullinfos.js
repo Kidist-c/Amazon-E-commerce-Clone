@@ -6,7 +6,7 @@ export const catagoryInfos=[
     },
      {
         title:"Discover fashion-Trends",
-        name:"wemon clothing",
+        name:"wemon's clothing",
         imgLink:"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_t.png",
     },
      {
