@@ -6,11 +6,11 @@ import Routering from './Routering';
 
 function App() {
   return (
-    
-       <Routering/>
-       
-    
+
+    <Routering />
+
+
   )
 }
 
-export default App
+export default App;

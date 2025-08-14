@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from './Header.module.css'
 import LowerHeader from './LowerHeader';
 import { FiSearch } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { CgShoppingCart } from "react-icons/cg";
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../utility/DataProvider/DataProvider';
 
 
 function Header() {
+    const[{cart},dispatch]=useContext(DataContext)
   return (
     <>
         <section>
@@ -63,7 +65,7 @@ function Header() {
                 <Link to="/cart"  className={classes.cart}>
                 {/*icon*/}
                 <CgShoppingCart />
-                <span>0</span>
+                <span>{cart.length}</span>
                 </Link>
             </div>
             </div>
