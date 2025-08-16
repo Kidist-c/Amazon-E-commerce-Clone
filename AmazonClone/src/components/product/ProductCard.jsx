@@ -8,7 +8,7 @@ import { Type } from '../../utility/action.type';
 
 
 
-function ProductCard({data,flex,productDect}) {
+function ProductCard({data,flex,productDect,renderAdd}) {
     const {image, title,id,rating, price,description}= data;
      const[state,dispatch]=useContext(DataContext);
      console.log(state)
@@ -39,7 +39,10 @@ function ProductCard({data,flex,productDect}) {
         <div>
             <Currency amount={price}/>
         </div>
-        <button className={classes.button} onClick={addToCart}>Add to Cart</button>
+        {
+          renderAdd && <button className={classes.button} onClick={addToCart}>Add to Cart</button>
+        }
+        
         </div>
     </div>
     

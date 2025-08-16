@@ -9,9 +9,12 @@ import { DataContext } from '../../utility/DataProvider/DataProvider';
 
 
 function Header() {
-    const[{cart},dispatch]=useContext(DataContext)
+    const[{cart}]=useContext(DataContext)
+    const totalItem=cart.reduce((amount,item)=>{
+        return item.amount + amount
+    },0)
   return (
-    <>
+    <section className={classes.fixed_header}>
         <section>
             <div className={classes.header_container}>
             <div className={classes.logo_container}>
@@ -65,7 +68,7 @@ function Header() {
                 <Link to="/cart"  className={classes.cart}>
                 {/*icon*/}
                 <CgShoppingCart />
-                <span>{cart.length}</span>
+                <span>{totalItem}</span>
                 </Link>
             </div>
             </div>
@@ -73,7 +76,7 @@ function Header() {
       
         </section>
         <LowerHeader/>
-    </>
+    </section>
   )
 }
 

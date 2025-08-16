@@ -19,8 +19,10 @@ function Product() {
     },[])
   return (
     <section className={classes.productCon}>
-        { loading ? <Loader /> :Product.map((singleProduct)=>{
-                return <ProductCard key={singleProduct.id} data={singleProduct}/>
+        { loading ? <Loader />:Product.map((singleProduct)=>{
+                return <ProductCard key={singleProduct.id} 
+                data={singleProduct}
+                renderAdd={true}/>
 
             })
             

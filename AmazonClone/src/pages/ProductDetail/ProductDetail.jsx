@@ -39,6 +39,7 @@ function ProductDetail() {
         data={product}
         flex={true}
         productDect={true}
+        renderAdd={true}
       />}
     </Layout>
   );
