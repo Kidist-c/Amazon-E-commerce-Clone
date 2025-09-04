@@ -1,6 +1,7 @@
 import { Type } from "./action.type";
 export const initialState={
-    cart:[]
+    cart:[],
+    user:null
 }
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -40,6 +41,11 @@ export const reducer = (state, action) => {
             }
             return state; // ✅ always return something
         }
+        case Type.SET_USER:
+            return {
+                ...state,
+                user: action.user
+            }
 
         default:
             return state;
