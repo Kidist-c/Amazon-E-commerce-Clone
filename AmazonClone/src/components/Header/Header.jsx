@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
 import classes from './Header.module.css'
 import LowerHeader from './LowerHeader';
-import { FiSearch } from "react-icons/fi";
+import { IoSearch } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { CgShoppingCart } from "react-icons/cg";
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../utility/DataProvider/DataProvider';
+import { auth } from '../../utility/firebase';
 
 
 function Header() {
-    const[{cart}]=useContext(DataContext)
+    const[{user,cart},dispatch]=useContext(DataContext)
     const totalItem=cart.reduce((amount,item)=>{
         return item.amount + amount
     },0)
@@ -40,7 +41,7 @@ function Header() {
                     <option value="all" selected>All</option>
                 </select>
                 <input type="text" name="" id="" placeholder='search product'></input>
-                <FiSearch />
+                <IoSearch  size={38}/>
             </div>
             <div className={classes.order_container}>
                 <div className={classes.language} >
@@ -50,10 +51,23 @@ function Header() {
                         <option value="">EN</option>
                     </select>
                 </div>
-                <Link to="/auth">
+                <Link to={  !user &&"/auth"}>
                     <div>
-                        <p>Sign In</p>
-                        <span>Account & lists</span>
+                        { user ?
+                            <>
+                            <p>Hello, {user.email.split("@")[0]}</p>
+                            <span onClick={()=>{auth.signOut()}}>sign out</span>
+                            </> :
+                            <>
+                            <p> Hello sign in</p>
+                            <span> Account & list</span>
+                            </>
+                             
+                            
+                            
+                        }
+                        
+                        
                     </div>
                     </Link>
                    
